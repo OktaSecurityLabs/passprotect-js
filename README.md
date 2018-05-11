@@ -73,6 +73,6 @@ ideas about how to do things better, please open a
 
 ## Changelog
 
-**May 21, 2018**
+**0.1.0** - *May 21, 2018*
 
 - First release! Yey.
