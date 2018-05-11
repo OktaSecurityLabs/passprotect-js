@@ -20,9 +20,11 @@ update their password as soon as they can to reduce the risk that their account
 will be compromised.
 
 PassProtect is a new, experimental way to proactively notify users about data
-breaches and help casual web users take a more practice stance in their own data
-security by informing them and encouraging them to take action to secure their
-accounts.
+breaches and help casual web users play a more active role in protecting their
+online accounts.
+
+We believe that by informing and guiding users to reset their credentials when
+necessary, we can all help make the web a safer place &lt;3
 
 
 ## How to Use PassProtect
