@@ -2,6 +2,8 @@
 
 **Stop using bad passwords.**
 
+![PassProtect demo](https://github.com/okta/passprotect-js/raw/master/assets/passprotect.gif)
+
 
 ## What is PassProtect?
 
