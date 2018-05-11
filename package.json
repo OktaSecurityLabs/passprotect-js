@@ -16,7 +16,8 @@
   },
   "scripts": {
     "test": "npm run build && cp ./dist/passprotect.min.js test/ && cd test && ws",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "publish": "npm run build; npm publish"
   },
   "repository": {
     "type": "git",
