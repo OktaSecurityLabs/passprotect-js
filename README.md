@@ -8,8 +8,8 @@
 PassProtect is a developer library you can drop into any web page which
 dramatically improves the security of users accessing your website.
 
-PassProtect works by binding itself to all `input` elements on the page which
-are either `email` or `password` inputs. Whenever a user enters a new value into
+PassProtect works by binding itself to all `input` elements on the page of type 
+`email` or `password` inputs. Whenever a user enters a new value into
 one of these `input` elements, PassProtect will check the user's email /
 password against the fabulous https://haveibeenpwned.com/ API service to see
 whether or not the user's email OR password has been breached in the past.
