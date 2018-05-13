@@ -56,13 +56,23 @@ function protectInputs() {
   }
 }
 
+
 /**
  * Return a unique email hash suitable for caching.
  *
  * @param {string} email - The email address to hash.
  */
 function getEmailHash(email) {
-  return sha1(email + "-" + window.location.host);
+  return sha1(email + "-" + getHost());
+}
+
+
+/**
+ * Return the top level host name for a domain. EG: Given woot.adobe.com, will
+ * return adobe.com.
+ */
+function getHost() {
+  return window.location.host.split('.').slice(-2).join('.');
 }
 
 
@@ -74,7 +84,7 @@ function getEmailHash(email) {
  * @param {object} evt - The DOM event.
  */
 function protectEmailInput(evt) {
-  var host = window.location.host;
+  var host = getHost();
   var xmlHttp = new XMLHttpRequest();
   var inputValue = evt.srcElement.value;
 
@@ -129,7 +139,7 @@ function protectEmailInput(evt) {
  * @param {string} password - The password to hash.
  */
 function getPasswordHash(password) {
-  return sha1(sha1(password).slice(0, 5) + "-" + window.location.host);
+  return sha1(sha1(password).slice(0, 5) + "-" + getHost());
 }
 
 
