@@ -207,7 +207,7 @@ function protectPasswordInput(evt) {
             '<p>The password you just entered has been found in <b>' + numberFormatter(parseInt(data[1])) + '</b> data breaches. <b>This password is not safe to use</b>.</p>',
             '<p>This means attackers can easily find this password online and will often try to access accounts with it.</p>',
             '<p>If you are currently using this password, please change it immediately to protect yourself. For more information, visit <a href="https://haveibeenpwned.com/" title="haveibeenpwned">Have I Been Pwned?</a>',
-            '<p>This notice will not show for the duration of your session to give you time to update this password.</p>'
+            '<p>This notice will not show again for the duration of this session to give you time to update this password.</p>'
           ].join('');
 
           vex.dialog.alert({
