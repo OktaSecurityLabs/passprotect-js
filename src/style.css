@@ -2,3 +2,7 @@
   font-weight: bold;
   text-align: center;
 }
+
+.vex-dialog-input p {
+  margin-bottom: 1em;
+}
