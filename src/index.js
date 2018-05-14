@@ -1,3 +1,18 @@
+/**
+ * Detect to see whether or not this script has already been loaded or not. For
+ * instance, if a developer includes passprotect-js in their site and a chrome
+ * extension visitor stumbles across the same site, we don't want to double up
+ * on notifications.
+ */
+var scripts = document.getElementsByTagName("script");
+for (var i = 0; i < scripts.length; i++) {
+  var chunks = scripts[i].src.split("/");
+
+  if (chunks[chunks.length - 1] === "passprotect.min.js") {
+    throw "passprotect already loaded, skipping";
+  }
+}
+
 import * as sha1 from "js-sha1";
 import * as vex from "../vendor/vex.combined.min.js";
 import "../vendor/vex.css";
