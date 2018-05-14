@@ -23,6 +23,44 @@ var PASS_PROTECT_PASSWORD_CHECK_URI = "https://api.pwnedpasswords.com/range/";
 
 
 /**
+ * Format numbers in a nice, human-readable fashion =)
+ *
+ * Stolen from: https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
+ */
+function numberFormatter(number, fractionDigits = 0, thousandSeperator = ',', fractionSeperator = '.') {
+  if (number !==0 && !number || !Number.isFinite(number)) {
+    return number;
+  }
+
+  const frDigits = Number.isFinite(fractionDigits)? Math.min(Math.max(fractionDigits, 0), 7) : 0;
+  const num = number.toFixed(frDigits).toString();
+
+  const parts = num.split('.');
+  let digits = parts[0].split('').reverse();
+  let sign = '';
+
+  if (num < 0) {
+    sign = digits.pop();
+  }
+
+  let final = [];
+  let pos = 0;
+
+  while (digits.length > 1) {
+      final.push(digits.shift());
+      pos++;
+
+      if (pos % 3 === 0) {
+        final.push(thousandSeperator);
+      }
+  }
+
+  final.push(digits.shift());
+  return `${sign}${final.reverse().join('')}${frDigits > 0 ? fractionSeperator : ''}${frDigits > 0 && parts[1] ? parts[1] : ''}`;
+}
+
+
+/**
  * This function returns true if the data is ignored and should not be used to
  * fire off a notification, false otherwise.
  *
@@ -96,7 +134,7 @@ function protectEmailInput(evt) {
         if (breaches[i].Domain === host && breaches[i].IsVerified) {
           var message = [
             '<p>' + breaches[i].Description + '</p>',
-            '<p>The email you entered was one of the <b>' + breaches[i].PwnCount + "</b> that were compromised. If you haven't done so already, you should change your password.</p>"
+            '<p>The email you entered was one of the <b>' + numberFormatter(breaches[i].PwnCount) + "</b> that were compromised. If you haven't done so already, you should change your password.</p>"
           ].join('');
 
           vex.dialog.alert({
@@ -166,7 +204,7 @@ function protectPasswordInput(evt) {
 
         if (data[0].indexOf(shortHash) === 0) {
           var message = [
-            '<p>The password you just entered has been found in <b>' + data[1] + '</b> data breaches. <b>This password is not safe to use</b>.</p>',
+            '<p>The password you just entered has been found in <b>' + numberFormatter(parseInt(data[1])) + '</b> data breaches. <b>This password is not safe to use</b>.</p>',
             '<p>This means attackers can easily find this password online and will often try to access accounts with it.</p>',
             '<p>If you are currently using this password, please change it immediately to protect yourself. For more information, visit <a href="https://haveibeenpwned.com/" title="haveibeenpwned">Have I Been Pwned?</a>',
             '<p>This notice will not show for the duration of your session to give you time to update this password.</p>'
