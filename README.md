@@ -2,7 +2,7 @@
 
 **Protect your user's passwords.**
 
-![PassProtect demo](https://github.com/okta/passprotect-js/raw/master/assets/passprotect.gif)
+![PassProtect demo](https://github.com/oktadeveloper/passprotect-js/raw/master/assets/passprotect.gif)
 
 
 ## What is PassProtect?
