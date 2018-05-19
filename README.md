@@ -7,8 +7,9 @@
 
 ## What is PassProtect?
 
-PassProtect is a developer library you can drop into any web page which
-dramatically improves the security of users accessing your website.
+PassProtect is a developer library created and maintained by [Randall Degges](https://twitter.com/rdegges)
+that you can drop into any web page which dramatically improves the security
+of users accessing your website.
 
 PassProtect works by binding itself to all `input` elements on the page of type 
 `email` or `password`. Whenever a user enters a new value into one of these
