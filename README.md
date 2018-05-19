@@ -1,6 +1,6 @@
 # passprotect-js
 
-**Stop using bad passwords.**
+**Protect your user's passwords.**
 
 ![PassProtect demo](https://github.com/okta/passprotect-js/raw/master/assets/passprotect.gif)
 
