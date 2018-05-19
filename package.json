@@ -7,6 +7,9 @@
     "js-sha1": "^0.6.0",
     "vex-js": "^4.1.0"
   },
+  "files": [
+    "umd"
+  ],
   "devDependencies": {
     "css-loader": "^0.28.11",
     "local-web-server": "^2.5.2",
