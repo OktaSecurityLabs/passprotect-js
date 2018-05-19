@@ -1,4 +1,5 @@
 const path = require("path");
+const ShellPlugin = require("webpack-shell-plugin");
 
 
 module.exports = {
@@ -18,5 +19,10 @@ module.exports = {
       }
     ]
   },
-  mode: "production"
+  mode: "production",
+  plugins: [
+    new ShellPlugin({
+      onBuildEnd: [ "mkdir umd", "cp ./dist/passprotect.min.js umd/" ]
+    })
+  ]
 };
