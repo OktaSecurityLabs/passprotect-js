@@ -20,8 +20,7 @@
   },
   "scripts": {
     "test": "npm run build && cp ./dist/passprotect.min.js test/ && cd test && ws",
-    "build": "rm -rf dist umd; webpack --config webpack.config.js",
-    "publish": "npm run build; npm publish"
+    "build": "rm -rf dist umd; webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
