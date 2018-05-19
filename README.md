@@ -74,6 +74,10 @@ ideas about how to do things better, please open a
 
 ## Changelog
 
+**???**: Not yet released.
+
+- Removing redundant `npm publish` script.
+
 **0.1.0**: *May 19, 2018*
 
 - First release! Yey.
