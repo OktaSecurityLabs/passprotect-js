@@ -69,7 +69,7 @@ to safely communicate your sensitive data over the internet without risk.
 PassProtect is also completely free, open source, and maintained by [Randall
 Degges](https://twitter.com/rdegges). If you want to audit the source, or have
 ideas about how to do things better, please open a
-[GitHub issue](https://github.com/okta/passprotect-js) or [email me](mailto:randall.degges@okta.com) directly.
+[GitHub issue](https://github.com/oktadeveloper/passprotect-js) or [email me](mailto:randall.degges@okta.com) directly.
 
 
 ## Changelog
