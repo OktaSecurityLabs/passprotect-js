@@ -44,7 +44,7 @@ configuration necessary.
   </head>
   <body>
     <!-- ... -->
-    <script src="TODO"></script>
+    <script src="https://unpkg.com/passprotect@0.1.0/umd/passprotect.min.js"></script>
   </body>
 </html>
 ```
