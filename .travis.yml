@@ -1,6 +1,6 @@
 language: node_js
 node_js: '9'
-install: pip install awscli
+install: pip install --user awscli
 script:
 - npm install
 - npm run build
