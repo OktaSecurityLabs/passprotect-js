@@ -6,6 +6,7 @@ script:
 - npm run build
 - npm run package
 after_success:
+- echo "hi"
 - aws s3 cp umd/passprotect.min.js s3://cdn.passprotect.io
 - aws configure.set preview.cloudfront true
 - aws cloudfront create-invalidation --distribution-id $AWS_CF_DISTRIBUTION_ID --paths
