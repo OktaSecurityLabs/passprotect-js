@@ -92,6 +92,21 @@ function protectInputs() {
         break;
     }
   }
+
+  inputs = document.querySelectorAll("input[type='text']");
+  for (var i = 0; i < inputs.length; i++) {
+    if (inputs[i].name.toLowerCase().indexOf("email") !== -1) {
+      return inputs[i].addEventListener("change", protectEmailInput);
+    }
+
+    if (inputs[i].id.toLowerCase().indexOf("email") !== -1) {
+      return inputs[i].addEventListener("change", protectEmailInput);
+    }
+
+    if (inputs[i].placeholder.toLowerCase().indexOf("email") !== -1) {
+      return inputs[i].addEventListener("change", protectEmailInput);
+    }
+  }
 }
 
 
