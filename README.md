@@ -74,9 +74,10 @@ ideas about how to do things better, please open a
 
 ## Changelog
 
-**???**: Not yet released.
+**0.2.0**: May 22, 2018
 
 - Removing redundant `npm publish` script.
+- Adding Firefox support.
 
 **0.1.0**: *May 19, 2018*
 
