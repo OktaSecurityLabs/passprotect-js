@@ -1,6 +1,6 @@
 {
   "name": "passprotect",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Protect your user's passwords.",
   "main": "src/index.js",
   "dependencies": {

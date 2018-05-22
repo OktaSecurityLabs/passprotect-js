@@ -74,6 +74,10 @@ ideas about how to do things better, please open a
 
 ## Changelog
 
+**0.2.1**: May 22, 2018
+
+- Improving form binding for posterity.
+
 **0.2.0**: May 22, 2018
 
 - Removing redundant `npm publish` script.
