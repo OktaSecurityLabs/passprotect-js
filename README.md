@@ -74,6 +74,10 @@ ideas about how to do things better, please open a
 
 ## Changelog
 
+**1.0.0**: May 24, 2018
+
+- Removing email breach detection functionality.
+
 **0.2.1**: May 22, 2018
 
 - Improving form binding for posterity.
