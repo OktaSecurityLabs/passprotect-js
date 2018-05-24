@@ -85,7 +85,7 @@ function protectInputs() {
   for (var i = 0; i < inputs.length; i++) {
     switch (inputs[i].type) {
       case "email":
-        inputs[i].addEventListener("change", protectEmailInput);
+        //inputs[i].addEventListener("change", protectEmailInput);
         break;
       case "password":
         inputs[i].addEventListener("change", protectPasswordInput);
