@@ -3,7 +3,7 @@ import * as vex from "../vendor/vex.combined.min.js";
 import "../vendor/vex.css";
 import "../vendor/vex-theme-wireframe.css";
 import "./style.css";
-
+import i18n from './i18n';
 
 /**
  * Settings (for the Vex library)
@@ -11,7 +11,7 @@ import "./style.css";
 vex.defaultOptions.className = "vex-theme-wireframe";
 vex.defaultOptions.escapeButtonCloses = false;
 vex.defaultOptions.overlayClosesOnClick = false;
-vex.dialog.buttons.YES.text = "I Understand";
+vex.dialog.buttons.YES.text = i18n.t("understand");
 
 
 /**
@@ -28,11 +28,11 @@ var PASS_PROTECT_PASSWORD_CHECK_URI = "https://api.pwnedpasswords.com/range/";
  * Stolen from: https://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
  */
 function numberFormatter(number, fractionDigits = 0, thousandSeperator = ',', fractionSeperator = '.') {
-  if (number !==0 && !number || !Number.isFinite(number)) {
+  if (number !== 0 && !number || !Number.isFinite(number)) {
     return number;
   }
 
-  const frDigits = Number.isFinite(fractionDigits)? Math.min(Math.max(fractionDigits, 0), 7) : 0;
+  const frDigits = Number.isFinite(fractionDigits) ? Math.min(Math.max(fractionDigits, 0), 7) : 0;
   const num = number.toFixed(frDigits).toString();
 
   const parts = num.split('.');
@@ -47,12 +47,12 @@ function numberFormatter(number, fractionDigits = 0, thousandSeperator = ',', fr
   let pos = 0;
 
   while (digits.length > 1) {
-      final.push(digits.shift());
-      pos++;
+    final.push(digits.shift());
+    pos++;
 
-      if (pos % 3 === 0) {
-        final.push(thousandSeperator);
-      }
+    if (pos % 3 === 0) {
+      final.push(thousandSeperator);
+    }
   }
 
   final.push(digits.shift());
@@ -141,21 +141,18 @@ function protectEmailInput(evt) {
   var xmlHttp = new XMLHttpRequest();
   var inputValue = evt.currentTarget.value;
 
-  xmlHttp.onreadystatechange = function() {
+  xmlHttp.onreadystatechange = function () {
     if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
       var breaches = JSON.parse(xmlHttp.responseText);
 
       for (var i = 0; i < breaches.length; i++) {
         if (breaches[i].Domain === host && breaches[i].IsVerified) {
-          var message = [
-            '<p>' + breaches[i].Description + '</p>',
-            '<p>The email you entered was one of the <b>' + numberFormatter(breaches[i].PwnCount) + "</b> that were compromised. If you haven't done so already, you should change your password.</p>"
-          ].join('');
+          var message = i18n.t('breach-email-count', { 'breach-count': numberFormatter(breaches[i].PwnCount), description: breaches[i].Description });
 
           vex.dialog.alert({
-            message: "Breach detected!",
+            message: i18n.t('breach-email-alert'),
             input: message,
-            callback: function() {
+            callback: function () {
               // Cache this email once the user clicks the "I Understand" button
               // so we don't continuously annoy the user with the same warnings.
               localStorage.setItem(getEmailHash(inputValue), "true");
@@ -210,7 +207,7 @@ function protectPasswordInput(evt) {
   var shortHash = hash.slice(5);
   var xmlHttp = new XMLHttpRequest();
 
-  xmlHttp.onreadystatechange = function() {
+  xmlHttp.onreadystatechange = function () {
     if (xmlHttp.readyState === 4 && xmlHttp.status === 200) {
       var resp = xmlHttp.responseText.split("\n");
 
@@ -218,17 +215,12 @@ function protectPasswordInput(evt) {
         var data = resp[i].split(":");
 
         if (data[0].indexOf(shortHash) === 0) {
-          var message = [
-            '<p>The password you just entered has been found in <b>' + numberFormatter(parseInt(data[1])) + '</b> data breaches. <b>This password is not safe to use</b>.</p>',
-            '<p>This means attackers can easily find this password online and will often try to access accounts with it.</p>',
-            '<p>If you are currently using this password, please change it immediately to protect yourself. For more information, visit <a href="https://haveibeenpwned.com/" title="haveibeenpwned">Have I Been Pwned?</a>',
-            '<p>This notice will not show again for the duration of this session to give you time to update this password.</p>'
-          ].join('');
+          var message = i18n.t('breach-password-count', { 'breach-count': numberFormatter(parseInt(data[1])) });
 
           vex.dialog.alert({
-            message: "Unsafe password detected!",
+            message: i18n.t('breach-password-alert'),
             input: message,
-            callback: function() {
+            callback: function () {
               // Cache this password once the user clicks the "I Understand" button
               // so we don't continuously annoy the user with the same warnings.
               //
@@ -262,7 +254,7 @@ if (window.attachEvent) {
 } else {
   if (window.onload) {
     var currentOnLoad = window.onload;
-    var newOnLoad = function(evt) {
+    var newOnLoad = function (evt) {
       currentOnLoad(evt);
       protectInputs(evt);
     };
@@ -272,3 +264,4 @@ if (window.attachEvent) {
     window.onload = protectInputs;
   }
 }
+
