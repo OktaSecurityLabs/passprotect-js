@@ -1,0 +1,17 @@
+{
+    "pt-BR": {
+        "breach-email-count": [
+            "<p>{{description}}</p>",
+            "<p>O e-mail que voc&ecirc; inseriu &eacute; um dos <b>{{breach-count}}</b> que estavam comprometidos. Voc&ecirc; deveria considerar uma troca de senha.</p>"
+        ],
+        "breach-email-alert": "Brecha detectada!",
+        "breach-password-count": [
+            "<p>A senha que voc&ecirc; acabou de digitar foi localizada em <b>{{breach-count}}</b> bases de dados comprometidas. <b>Esta n&atilde;o &eacute; uma senha segura para ser utilizada.</b>.</p>",
+            "<p>Isso significa que um invasor pode encontrar facilmente essa senha online. E podem conseguir acessar sua conta com ela.</p>",
+            "<p>Se voc&ecirc; estiver usando essa senha no momento, altere-a imediatamente para se proteger. Para mais informa&ccedil;&otilde;es visite <a href=\"https://haveibeenpwned.com/\" title=\"haveibeenpwned\">Have I Been Pwned?</a>'",
+            "<p>Este aviso n&atilde;o ser&aacute; exibido novamente durante a sess&atilde;o, para que voc&ecirc; tenha tempo para atualizar esta senha.</p>"
+        ],
+        "breach-password-alert": "Senha vulneravel!",
+        "understand": "Entendi"
+    }
+}
